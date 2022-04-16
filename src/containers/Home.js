@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { axiosInstance } from "../api";
+import File from "../components/File";
 import DirectoryPath from "../components/DirectoryPath";
 
 function Home() {
@@ -61,7 +62,7 @@ function Home() {
     }));
   }
   return (
-    <div>
+    <PageWrapper>
       <div>
         <DirectoryPath
           currentDirectory={currentDirectory}
@@ -70,14 +71,19 @@ function Home() {
       </div>
       <div>
         {files.directories.map((el) => {
-          return <div onClick={() => onDirectoryClick(el)}>{el.name}</div>;
+          return <File onClickProps={onDirectoryClick} data={el} directory />;
         })}
         {files.files.map((el) => {
-          return <div>{el.name} </div>;
+          return <File data={el} />;
         })}
       </div>
-    </div>
+    </PageWrapper>
   );
 }
+
+const PageWrapper = styled.div`
+  background-color: #525659;
+  color: #fff;
+`;
 
 export default Home;
