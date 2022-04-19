@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./containers/Home";
 import GlobalStyles from "./GlobalStyles";
 

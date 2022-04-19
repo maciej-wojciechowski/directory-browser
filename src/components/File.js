@@ -26,6 +26,7 @@ function File({ onClickProps = () => null, data, directory }) {
 const FileWrapper = styled.div`
   width: 80px;
   margin: 0 10px;
+  text-align: center;
   :hover {
     color: var(--hover-color);
     svg {
